@@ -1,19 +1,17 @@
 <?php
-    include 'request.php';
+    require 'request.php';
 
-
-    $titre = $_POST['new_titre'];
     $img = $_POST['new_img'];
+    $titre = $_POST['new_titre'];
     $texte = $_POST['new_texte'];
 
-    $req = $bd->prepare('INSERT INTO spwan (img, titre, texte) VALUES(:img, :titre, :texte)');
+    $req = $db->prepare('INSERT INTO spwan (img, titre, texte) VALUES(:img, :titre, :texte)');
     $req->execute(array(
         "img" => $img,
         "titre" => $titre,
         "texte" => $texte,
     ));
 
-
-
-?><?php
+    header('Location: http://127.0.0.1/php/Projet_2/admin.php');
+    exit();
 
